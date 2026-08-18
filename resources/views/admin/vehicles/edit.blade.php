@@ -112,8 +112,8 @@
                         <img src="{{ asset('storage/' . $vehicle->image) }}" class="h-20 rounded" alt="Current Image">
                     </div>
                 @endif
-                <input type="file" name="image" id="image" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
-                <p class="text-xs text-gray-500 mt-1">Leave blank to keep current image.</p>
+                <input type="file" name="image" id="image" class="mt-1 block w-full text-sm text-blue-600 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                <p class="text-xs text-blue-600 mt-1">Leave blank to keep current image.</p>
                 @error('image') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
         </div>
