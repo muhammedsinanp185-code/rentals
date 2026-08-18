@@ -59,6 +59,8 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     
     Route::get('bookings', [AdminBookingController::class, 'index'])->name('bookings.index');
     Route::patch('bookings/{booking}/status', [AdminBookingController::class, 'updateStatus'])->name('bookings.update-status');
+    Route::get('shop', [\App\Http\Controllers\Admin\ShopProfileController::class, 'edit'])->name('shop.edit');
+    Route::put('shop', [\App\Http\Controllers\Admin\ShopProfileController::class, 'update'])->name('shop.update');
     
     // Super Admin only routes (protected in controllers or UI for now)
     Route::resource('categories', CategoryController::class);

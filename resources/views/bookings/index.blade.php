@@ -71,6 +71,7 @@
                         <th class="px-6 py-4 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Dates</th>
                         <th class="px-6 py-4 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Amount</th>
                         <th class="px-6 py-4 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Status</th>
+                        <th class="px-6 py-4 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Payment Info</th>
                         <th class="px-6 py-4 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider text-right">Actions</th>
                     </tr>
                 </thead>
@@ -80,7 +81,7 @@
                             <td class="px-6 py-4 text-sm font-medium text-indigo-600 dark:text-indigo-400">#{{ str_pad($booking->id, 5, '0', STR_PAD_LEFT) }}</td>
                             <td class="px-6 py-4">
                                 <div class="text-sm font-medium text-gray-900 dark:text-gray-100">{{ $booking->vehicle->name }}</div>
-                                <div class="text-xs text-gray-500 dark:text-gray-400">{{ $booking->vehicle->brand }}</div>
+                                <div class="text-xs text-gray-500 dark:text-gray-400">{{ $booking->vehicle->brand }} | Shop: {{ $booking->vehicle->shop->name ?? 'Unknown' }}</div>
                             </td>
                             <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">
                                 {{ $booking->start_date->format('M d, Y') }} <br>
@@ -100,6 +101,16 @@
                                 ">
                                     {{ ucfirst($booking->status) }}
                                 </span>
+                            </td>
+                            <td class="px-6 py-4">
+                                @if($booking->vehicle->shop && $booking->vehicle->shop->payment_instructions)
+                                    <div class="text-xs text-gray-600 dark:text-gray-300 whitespace-normal max-w-xs p-2 bg-gray-50 dark:bg-gray-800 rounded border border-gray-100 dark:border-gray-700">
+                                        <strong class="block mb-1">Payment Instructions:</strong>
+                                        {{ Str::limit($booking->vehicle->shop->payment_instructions, 100) }}
+                                    </div>
+                                @else
+                                    <span class="text-xs text-gray-400">Pay at shop</span>
+                                @endif
                             </td>
                             <td class="px-6 py-4 text-right">
                                 @if($booking->status === 'pending')

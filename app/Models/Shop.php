@@ -15,6 +15,7 @@ class Shop extends Model
         'description',
         'phone',
         'address',
+        'payment_instructions',
     ];
 
     public function user()
