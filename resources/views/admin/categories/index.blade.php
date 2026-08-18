@@ -3,25 +3,25 @@
 @section('header', 'Categories')
 
 @section('content')
-<div class="mb-4 flex justify-between items-center">
+<div class="mb-6 flex justify-between items-center">
     <h3 class="text-lg font-bold dark:text-slate-100">Manage Vehicle Categories</h3>
-    <a href="{{ route('admin.categories.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add Category</a>
+    <a href="{{ route('admin.categories.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Add Category</a>
 </div>
 
-<div class="bg-white dark:bg-slate-900 rounded-lg shadow-sm overflow-hidden border dark:border-slate-800">
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm overflow-hidden border dark:border-slate-800">
     <table class="w-full whitespace-nowrap">
         <thead class="bg-white dark:bg-slate-950/50 border-b dark:border-slate-800">
             <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">ID</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Name</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Description</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Vehicles</th>
-                <th class="px-6 py-3 text-right text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Actions</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">ID</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Name</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Description</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Vehicles</th>
+                <th class="px-6 py-4 text-right text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Actions</th>
             </tr>
         </thead>
-        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+        <tbody class="divide-y divide-blue-50 dark:divide-slate-800">
             @forelse ($categories as $category)
-                <tr class="hover:bg-white dark:hover:bg-gray-700/50 text-blue-950 dark:text-slate-300">
+                <tr class="hover:bg-blue-50/50 dark:hover:bg-slate-800/50 text-blue-950 dark:text-slate-300">
                     <td class="px-6 py-4">{{ $category->id }}</td>
                     <td class="px-6 py-4 font-medium dark:text-slate-100">{{ $category->name }}</td>
                     <td class="px-6 py-4 truncate max-w-xs">{{ $category->description }}</td>

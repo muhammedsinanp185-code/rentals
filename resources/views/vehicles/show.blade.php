@@ -14,7 +14,7 @@
                     @if($vehicle->image)
                         <img src="{{ asset('storage/' . $vehicle->image) }}" alt="{{ $vehicle->name }}" class="w-full h-96 object-cover">
                     @else
-                        <div class="w-full h-96 bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-blue-600 dark:text-blue-500 text-lg">No Image Available</div>
+                        <div class="w-full h-96 bg-blue-100 dark:bg-gray-700 flex items-center justify-center text-blue-600 dark:text-blue-500 text-lg">No Image Available</div>
                     @endif
                 </div>
                 
@@ -38,19 +38,19 @@
                     </div>
 
                     <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="bg-white dark:bg-gray-700/50 p-4 rounded-lg border border-blue-100 dark:border-slate-800">
+                        <div class="bg-white dark:bg-gray-700/50 p-4 rounded-md border border-blue-100 dark:border-slate-800">
                             <span class="block text-sm text-blue-600 dark:text-blue-500 font-medium">Seats</span>
                             <span class="block text-lg font-bold text-blue-950 dark:text-slate-100">{{ $vehicle->seats }}</span>
                         </div>
-                        <div class="bg-white dark:bg-gray-700/50 p-4 rounded-lg border border-blue-100 dark:border-slate-800">
+                        <div class="bg-white dark:bg-gray-700/50 p-4 rounded-md border border-blue-100 dark:border-slate-800">
                             <span class="block text-sm text-blue-600 dark:text-blue-500 font-medium">Fuel Type</span>
                             <span class="block text-lg font-bold text-blue-950 dark:text-slate-100">{{ $vehicle->fuel_type }}</span>
                         </div>
-                        <div class="bg-white dark:bg-gray-700/50 p-4 rounded-lg border border-blue-100 dark:border-slate-800">
+                        <div class="bg-white dark:bg-gray-700/50 p-4 rounded-md border border-blue-100 dark:border-slate-800">
                             <span class="block text-sm text-blue-600 dark:text-blue-500 font-medium">Transmission</span>
                             <span class="block text-lg font-bold text-blue-950 dark:text-slate-100">{{ $vehicle->transmission }}</span>
                         </div>
-                        <div class="bg-white dark:bg-gray-700/50 p-4 rounded-lg border border-blue-100 dark:border-slate-800">
+                        <div class="bg-white dark:bg-gray-700/50 p-4 rounded-md border border-blue-100 dark:border-slate-800">
                             <span class="block text-sm text-blue-600 dark:text-blue-500 font-medium">Status</span>
                             <span class="block text-lg font-bold text-blue-950 dark:text-slate-100 capitalize">{{ $vehicle->status }}</span>
                         </div>
@@ -63,11 +63,11 @@
 
                     <div class="mt-auto">
                         @if($vehicle->status === 'maintenance')
-                            <div class="bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 p-4 rounded-lg border border-red-200 dark:border-red-800 text-center font-medium">
+                            <div class="bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 p-4 rounded-md border border-red-200 dark:border-red-800 text-center font-medium">
                                 Currently unavailable for booking (Maintenance)
                             </div>
                         @else
-                            <div class="bg-indigo-50 dark:bg-indigo-900/30 p-6 rounded-lg border border-indigo-100 dark:border-indigo-800">
+                            <div class="bg-indigo-50 dark:bg-indigo-900/30 p-6 rounded-md border border-indigo-100 dark:border-indigo-800">
                                 <h3 class="text-lg font-bold text-blue-950 dark:text-slate-100 mb-4">Request Booking</h3>
                                 @auth
                                     @if(Auth::user()->role === 'customer')
@@ -76,17 +76,17 @@
                                             <input type="hidden" name="vehicle_id" value="{{ $vehicle->id }}">
                                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                                                 <div>
-                                                    <label class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">Start Date</label>
-                                                    <input type="date" name="start_date" id="start_date" class="w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-slate-900 dark:text-slate-100 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required min="{{ date('Y-m-d') }}">
+                                                    <label class="block text-sm font-medium text-blue-950 dark:text-slate-300 mb-1">Start Date</label>
+                                                    <input type="date" name="start_date" id="start_date" class="w-full rounded-md border-blue-200 dark:border-gray-600 dark:bg-slate-900 dark:text-slate-100 shadow-sm focus:border-blue-500 focus:ring-blue-500" required min="{{ date('Y-m-d') }}">
                                                 </div>
                                                 <div>
-                                                    <label class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">End Date</label>
-                                                    <input type="date" name="end_date" id="end_date" class="w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-slate-900 dark:text-slate-100 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required min="{{ date('Y-m-d') }}">
+                                                    <label class="block text-sm font-medium text-blue-950 dark:text-slate-300 mb-1">End Date</label>
+                                                    <input type="date" name="end_date" id="end_date" class="w-full rounded-md border-blue-200 dark:border-gray-600 dark:bg-slate-900 dark:text-slate-100 shadow-sm focus:border-blue-500 focus:ring-blue-500" required min="{{ date('Y-m-d') }}">
                                                 </div>
                                             </div>
                                             
                                             <div class="mb-4">
-                                                <div class="flex justify-between items-center text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">
+                                                <div class="flex justify-between items-center text-sm font-medium text-blue-950 dark:text-slate-300 mb-1">
                                                     <span>Total Estimated:</span>
                                                     <span id="total_estimate" class="text-lg font-bold text-indigo-600 dark:text-indigo-400">₹0</span>
                                                 </div>
@@ -96,15 +96,15 @@
                                             <button type="submit" class="w-full bg-indigo-600 text-white py-3 px-4 rounded-md font-bold hover:bg-indigo-700 transition-colors shadow-sm text-lg">Book Now</button>
                                         </form>
                                     @else
-                                        <div class="text-center p-3 bg-white dark:bg-slate-900 rounded border border-blue-200 dark:border-slate-800 text-blue-800 dark:text-blue-500">
+                                        <div class="text-center p-3 bg-white dark:bg-slate-900 rounded-md border border-blue-200 dark:border-slate-800 text-blue-800 dark:text-blue-500">
                                             Admins cannot book vehicles.
                                         </div>
                                     @endif
                                 @else
-                                    <div class="text-center p-4 bg-white dark:bg-slate-900 rounded-lg border border-blue-200 dark:border-slate-800">
+                                    <div class="text-center p-4 bg-white dark:bg-slate-900 rounded-md border border-blue-200 dark:border-slate-800">
                                         <p class="text-blue-800 dark:text-blue-500 mb-3">Please login to book this vehicle.</p>
-                                        <a href="{{ route('login') }}" class="inline-block bg-indigo-600 text-white py-2 px-6 rounded font-medium hover:bg-indigo-700">Login</a>
-                                        <a href="{{ route('register') }}" class="inline-block bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 border border-indigo-600 dark:border-indigo-400 py-2 px-6 rounded font-medium hover:bg-indigo-50 dark:hover:bg-gray-700 ml-2">Register</a>
+                                        <a href="{{ route('login') }}" class="inline-block bg-indigo-600 text-white py-2 px-6 rounded-md font-medium hover:bg-indigo-700">Login</a>
+                                        <a href="{{ route('register') }}" class="inline-block bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 border border-indigo-600 dark:border-indigo-400 py-2 px-6 rounded-md font-medium hover:bg-indigo-50 dark:hover:bg-gray-700 ml-2">Register</a>
                                     </div>
                                 @endauth
                             </div>

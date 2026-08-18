@@ -3,26 +3,26 @@
 @section('header', 'Bookings')
 
 @section('content')
-<div class="mb-4 flex justify-between items-center">
+<div class="mb-6 flex justify-between items-center">
     <h3 class="text-lg font-bold dark:text-slate-100">Manage Bookings</h3>
 </div>
 
-<div class="bg-white dark:bg-slate-900 rounded-lg shadow-sm overflow-x-auto border dark:border-slate-800">
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm overflow-hidden border dark:border-slate-800">
     <table class="w-full whitespace-nowrap">
         <thead class="bg-white dark:bg-slate-950/50 border-b dark:border-slate-800">
             <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">ID</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Customer</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Vehicle</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Dates</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Amount</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Status</th>
-                <th class="px-6 py-3 text-right text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Actions</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">ID</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Customer</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Vehicle</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Dates</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Amount</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Status</th>
+                <th class="px-6 py-4 text-right text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Actions</th>
             </tr>
         </thead>
-        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+        <tbody class="divide-y divide-blue-50 dark:divide-slate-800">
             @forelse ($bookings as $booking)
-                <tr class="hover:bg-white dark:hover:bg-gray-700/50">
+                <tr class="hover:bg-blue-50/50 dark:hover:bg-slate-800/50 transition-colors">
                     <td class="px-6 py-4 dark:text-slate-300">#{{ $booking->id }}</td>
                     <td class="px-6 py-4">
                         <div class="font-medium text-blue-950 dark:text-slate-100">{{ $booking->user->name }}</div>
@@ -52,7 +52,7 @@
                         <form action="{{ route('admin.bookings.update-status', $booking) }}" method="POST" class="flex justify-end items-center gap-2">
                             @csrf
                             @method('PATCH')
-                            <select name="status" class="text-sm rounded border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-slate-100 py-1 pr-8" onchange="this.form.submit()">
+                            <select name="status" class="text-sm rounded-md border-blue-200 dark:border-gray-600 dark:bg-gray-700 dark:text-slate-100 py-1 pr-8" onchange="this.form.submit()">
                                 <option value="pending" {{ $booking->status === 'pending' ? 'selected' : '' }}>Pending</option>
                                 <option value="approved" {{ $booking->status === 'approved' ? 'selected' : '' }}>Approved</option>
                                 <option value="completed" {{ $booking->status === 'completed' ? 'selected' : '' }}>Completed</option>

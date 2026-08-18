@@ -77,9 +77,9 @@
                         <th class="px-6 py-4 text-right">Status</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-50 dark:divide-gray-700">
+                <tbody class="divide-y divide-blue-50 dark:divide-slate-800">
                     @foreach($stats['recent_bookings'] as $booking)
-                        <tr class="hover:bg-white/50 dark:hover:bg-gray-700/50 transition-colors">
+                        <tr class="hover:bg-blue-50/50 dark:hover:bg-slate-800/50 transition-colors">
                             <td class="px-6 py-4 text-sm font-medium text-indigo-600 dark:text-indigo-400">
                                 <a href="{{ route('admin.bookings.index') }}">#{{ str_pad($booking->id, 5, '0', STR_PAD_LEFT) }}</a>
                             </td>

@@ -66,32 +66,32 @@
             <table class="w-full text-left whitespace-nowrap">
                 <thead class="bg-white dark:bg-slate-900 border-b border-blue-100 dark:border-slate-800">
                     <tr>
-                        <th class="px-8 py-5 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest">Booking ID</th>
-                        <th class="px-8 py-5 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest">Vehicle</th>
-                        <th class="px-8 py-5 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest">Dates</th>
-                        <th class="px-8 py-5 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest">Amount</th>
-                        <th class="px-8 py-5 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest">Status</th>
-                        <th class="px-8 py-5 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest">Payment Info</th>
-                        <th class="px-8 py-5 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest text-right">Actions</th>
+                        <th class="px-6 py-4 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest">Booking ID</th>
+                        <th class="px-6 py-4 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest">Vehicle</th>
+                        <th class="px-6 py-4 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest">Dates</th>
+                        <th class="px-6 py-4 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest">Amount</th>
+                        <th class="px-6 py-4 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest">Status</th>
+                        <th class="px-6 py-4 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest">Payment Info</th>
+                        <th class="px-6 py-4 text-xs font-bold text-blue-500 dark:text-blue-600 uppercase tracking-widest text-right">Actions</th>
                     </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-50 dark:divide-slate-800">
+                <tbody class="divide-y divide-blue-50 dark:divide-slate-800">
                     @foreach($bookings as $booking)
-                        <tr class="hover:bg-white/50 dark:hover:bg-slate-800/50 transition-colors">
-                            <td class="px-8 py-5 text-sm font-bold text-blue-950 dark:text-slate-100">#{{ str_pad($booking->id, 5, '0', STR_PAD_LEFT) }}</td>
-                            <td class="px-8 py-5">
+                        <tr class="hover:bg-blue-50/50 dark:hover:bg-slate-800/50 transition-colors">
+                            <td class="px-6 py-4 text-sm font-bold text-blue-950 dark:text-slate-100">#{{ str_pad($booking->id, 5, '0', STR_PAD_LEFT) }}</td>
+                            <td class="px-6 py-4">
                                 <div class="text-sm font-bold text-blue-950 dark:text-slate-100">{{ $booking->vehicle->name }}</div>
                                 <div class="text-xs text-blue-600 dark:text-blue-500 font-medium">{{ $booking->vehicle->brand }} | Shop: {{ $booking->vehicle->shop->name ?? 'Unknown' }}</div>
                             </td>
-                            <td class="px-8 py-5 text-sm font-medium text-blue-800 dark:text-slate-300">
+                            <td class="px-6 py-4 text-sm font-medium text-blue-800 dark:text-slate-300">
                                 {{ $booking->start_date->format('M d, Y') }} <br>
                                 <span class="text-xs text-blue-500 dark:text-blue-600 font-normal">to</span> {{ $booking->end_date->format('M d, Y') }}
                             </td>
-                            <td class="px-8 py-5">
+                            <td class="px-6 py-4">
                                 <div class="text-sm font-extrabold text-blue-950 dark:text-slate-100">₹{{ number_format($booking->total_amount, 0) }}</div>
                                 <div class="text-xs text-blue-600 dark:text-blue-500 font-medium">{{ $booking->total_days }} days</div>
                             </td>
-                            <td class="px-8 py-5">
+                            <td class="px-6 py-4">
                                 <span class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest 
                                     {{ $booking->status === 'pending' ? 'bg-blue-50 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700' : '' }}
                                     {{ $booking->status === 'approved' ? 'bg-slate-900 dark:bg-white text-white dark:text-blue-950' : '' }}
@@ -102,9 +102,9 @@
                                     {{ $booking->status }}
                                 </span>
                             </td>
-                            <td class="px-8 py-5">
+                            <td class="px-6 py-4">
                                 @if($booking->vehicle->shop && $booking->vehicle->shop->payment_instructions)
-                                    <div class="text-xs text-blue-800 dark:text-slate-300 whitespace-normal max-w-xs p-3 bg-white dark:bg-zinc-800/50 rounded-lg border border-blue-100 dark:border-zinc-700 font-medium">
+                                    <div class="text-xs text-blue-800 dark:text-slate-300 whitespace-normal max-w-xs p-3 bg-white dark:bg-zinc-800/50 rounded-md border border-blue-100 dark:border-zinc-700 font-medium">
                                         <strong class="block mb-1 text-blue-950 dark:text-slate-100 text-[10px] uppercase tracking-widest">Payment Instructions:</strong>
                                         {{ Str::limit($booking->vehicle->shop->payment_instructions, 100) }}
                                     </div>
@@ -112,7 +112,7 @@
                                     <span class="text-xs text-blue-500 font-medium">Pay at shop</span>
                                 @endif
                             </td>
-                            <td class="px-8 py-5 text-right">
+                            <td class="px-6 py-4 text-right">
                                 @if($booking->status === 'pending')
                                     <form action="{{ route('bookings.cancel', $booking) }}" method="POST" onsubmit="return confirm('Are you sure you want to cancel this booking?');">
                                         @csrf

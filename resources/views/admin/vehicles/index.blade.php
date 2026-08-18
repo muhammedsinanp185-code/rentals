@@ -3,31 +3,31 @@
 @section('header', 'Vehicles')
 
 @section('content')
-<div class="mb-4 flex justify-between items-center">
+<div class="mb-6 flex justify-between items-center">
     <h3 class="text-lg font-bold dark:text-slate-100">Manage Vehicles</h3>
-    <a href="{{ route('admin.vehicles.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Add Vehicle</a>
+    <a href="{{ route('admin.vehicles.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Add Vehicle</a>
 </div>
 
-<div class="bg-white dark:bg-slate-900 rounded-lg shadow-sm overflow-x-auto border dark:border-slate-800">
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm overflow-hidden border dark:border-slate-800">
     <table class="w-full whitespace-nowrap">
         <thead class="bg-white dark:bg-slate-950/50 border-b dark:border-slate-800">
             <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Image</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Details</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Category</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Price/Day</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Status</th>
-                <th class="px-6 py-3 text-right text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Actions</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Image</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Details</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Category</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Price/Day</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Status</th>
+                <th class="px-6 py-4 text-right text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Actions</th>
             </tr>
         </thead>
-        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+        <tbody class="divide-y divide-blue-50 dark:divide-slate-800">
             @forelse ($vehicles as $vehicle)
-                <tr class="hover:bg-white dark:hover:bg-gray-700/50">
+                <tr class="hover:bg-blue-50/50 dark:hover:bg-slate-800/50 transition-colors">
                     <td class="px-6 py-4">
                         @if($vehicle->image)
                             <img src="{{ asset('storage/' . $vehicle->image) }}" alt="{{ $vehicle->name }}" class="h-12 w-20 object-cover rounded">
                         @else
-                            <div class="h-12 w-20 bg-gray-200 dark:bg-gray-700 flex items-center justify-center rounded text-xs text-blue-600 dark:text-blue-500">No Image</div>
+                            <div class="h-12 w-20 bg-blue-100 dark:bg-gray-700 flex items-center justify-center rounded-md text-xs text-blue-600 dark:text-blue-500">No Image</div>
                         @endif
                     </td>
                     <td class="px-6 py-4">

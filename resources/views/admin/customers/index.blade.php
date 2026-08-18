@@ -3,26 +3,26 @@
 @section('header', 'Customers')
 
 @section('content')
-<div class="mb-4 flex justify-between items-center">
+<div class="mb-6 flex justify-between items-center">
     <h3 class="text-lg font-bold dark:text-slate-100">Manage Customers</h3>
 </div>
 
-<div class="bg-white dark:bg-slate-900 rounded-lg shadow-sm overflow-x-auto border dark:border-slate-800">
+<div class="bg-white dark:bg-slate-900 rounded-xl shadow-sm overflow-hidden border dark:border-slate-800">
     <table class="w-full whitespace-nowrap">
         <thead class="bg-white dark:bg-slate-950/50 border-b dark:border-slate-800">
             <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">ID</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Name</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Email</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Phone</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Address</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Total Bookings</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-blue-600 dark:text-blue-500 uppercase tracking-wider">Registered At</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">ID</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Name</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Email</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Phone</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Address</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Total Bookings</th>
+                <th class="px-6 py-4 text-left text-xs font-bold text-blue-600 dark:text-blue-500 uppercase tracking-widest">Registered At</th>
             </tr>
         </thead>
-        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+        <tbody class="divide-y divide-blue-50 dark:divide-slate-800">
             @forelse ($customers as $customer)
-                <tr class="hover:bg-white dark:hover:bg-gray-700/50">
+                <tr class="hover:bg-blue-50/50 dark:hover:bg-slate-800/50 transition-colors">
                     <td class="px-6 py-4 text-sm text-blue-600 dark:text-blue-500">#{{ $customer->id }}</td>
                     <td class="px-6 py-4">
                         <div class="font-medium text-blue-950 dark:text-slate-100">{{ $customer->name }}</div>

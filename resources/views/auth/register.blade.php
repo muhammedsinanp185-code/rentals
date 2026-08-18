@@ -19,7 +19,7 @@
         <!-- Role Selection -->
         <div class="mt-4">
             <x-input-label for="role" :value="__('I want to register as')" />
-            <select id="role" name="role" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" required>
+            <select id="role" name="role" class="block mt-1 w-full border-blue-200 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm" required>
                 <option value="customer">Customer (Rent Vehicles)</option>
                 <option value="vendor">Shop Owner (List Vehicles)</option>
             </select>
@@ -36,7 +36,7 @@
         <!-- Address -->
         <div class="mt-4">
             <x-input-label for="address" :value="__('Address')" />
-            <textarea id="address" name="address" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full" required>{{ old('address') }}</textarea>
+            <textarea id="address" name="address" class="border-blue-200 focus:border-blue-500 focus:ring-blue-500 rounded-md shadow-sm block mt-1 w-full" required>{{ old('address') }}</textarea>
             <x-input-error :messages="$errors->get('address')" class="mt-2" />
         </div>
 
@@ -64,7 +64,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-blue-800 hover:text-blue-950 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+            <a class="underline text-sm text-blue-800 hover:text-blue-950 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
 
