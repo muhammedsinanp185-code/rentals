@@ -16,12 +16,12 @@
         @include('partials.darkmode-script')
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-blue-50 dark:bg-black text-blue-950 dark:text-yellow-400">
+        <div class="min-h-screen bg-blue-50 dark:bg-slate-950 text-blue-950 dark:text-slate-100">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
             @isset($header)
-                <header class="bg-white dark:bg-[#111111] shadow">
+                <header class="bg-white dark:bg-slate-900 shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex items-center justify-between">
                         <div class="flex items-center">
                             @if(!request()->routeIs('dashboard'))
@@ -29,7 +29,7 @@
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
                             </button>
                             @endif
-                            <div class="text-blue-900 dark:text-yellow-400">
+                            <div class="text-blue-900 dark:text-slate-100">
                                 {{ $header }}
                             </div>
                         </div>
